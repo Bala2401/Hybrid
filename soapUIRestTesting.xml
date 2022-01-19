@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6f33ed03-2ad4-4848-8224-e64509d139b0" activeEnvironment="Default" name="REST Project 4" resourceRoot="" soapui-version="5.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="3911f638-9e2c-4a73-9781-033e0402086e" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://be-java.azurewebsites.net" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://be-java.azurewebsites.net</con:endpoint></con:endpoints><con:resource name="getEmployee" path="/api/v1/employees" id="e9743ac3-e909-4756-b484-3a42fd00b151"><con:settings/><con:parameters/><con:method name="getEmployee" id="90c62000-e1a0-4fd9-849a-862525b37678" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>202</con:status><con:params/><con:element xmlns:emp="https://be-java.azurewebsites.net/api/v1/employee">emp:Response</con:element></con:representation><con:request name="GET" id="6e65d6c3-062b-4d0f-afe5-2de731e2001f" mediaType="application/json"><con:settings/><con:endpoint>${#Project#urlEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="addEmployee" path="/api/v1/employee" id="94848b06-39bc-4a4a-aeec-4858baa1c015"><con:settings/><con:parameters/><con:method name="addEmployee" id="92630fdc-d4b4-4bea-a181-ba29991274e4" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>201</con:status><con:params/><con:element xmlns:emp="https://be-java.azurewebsites.net/api/v1/employee">emp:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="POST" id="1c70fef1-9a1e-43ed-bd72-fd7602a35dec" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#urlEndpoint}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="putEmployee" path="/api/v1/employees/{id}" id="81d090be-cb36-4571-b5a1-69228fce39b0"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>id</con:value><con:style>TEMPLATE</con:style><con:default>id</con:default></con:parameter></con:parameters><con:method name="putEmployee" id="79c065b3-59dc-43ff-a9df-bce08d79c3f4" method="PUT"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>202</con:status><con:params/><con:element xmlns:ns="https://be-java.azurewebsites.net/api/v1/employees/9354">ns:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="PUT" id="bec473cf-9a20-49e2-875c-4aee8615af60" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#urlEndpoint}</con:endpoint><con:request>{
+  "compitency": "backend",
+  "name": "Jake",
+  "yearOfJoining": 2021
+}</con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="9354" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:resource name="deleteEmployee" path="/api/v1/employees/{id}" id="90d94fc2-b134-47fe-8aca-1c2ea975c39b"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>id</con:value><con:style>TEMPLATE</con:style><con:default>id</con:default></con:parameter></con:parameters><con:method name="deleteEmployee" id="82948ded-7869-43aa-a940-6afc7892eead" method="DELETE"><con:settings/><con:parameters/><con:request name="DELETE" id="668b7321-02aa-4bfc-96cb-9fff1d22b3be" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://be-java.azurewebsites.net</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="64350c5b-116b-491f-ae4c-b616d80fa1e5" name="Testing"><con:description>TestSuite generated for REST Service [https://be-java.azurewebsites.net]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4627160d-fbe9-41c9-a177-f2e6c491b71f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getEmployee" searchProperties="true"><con:description>TestCase generated for REST Resource [getEmployee] located at [/api/v1/employee]</con:description><con:settings/><con:testStep type="restrequest" name="GET" id="e139d574-fc1b-45ea-948e-1f836135acb9"><con:settings/><con:config service="https://be-java.azurewebsites.net" resourcePath="/api/v1/employees" methodName="getEmployee" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET" id="6e65d6c3-062b-4d0f-afe5-2de731e2001f" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#urlEndpoint}</con:endpoint><con:request/><con:originalUri>https://be-java.azurewebsites.net/api/v1/employee</con:originalUri><con:assertion type="Simple Contains" id="4887c821-6f05-4878-a719-188fcb32a7e5" name="Contains"><con:configuration><token>ACCEPTED</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="dce12881-15b2-42c6-a432-50a6a4f55027" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="addEmployee" searchProperties="true"><con:description>TestCase generated for REST Resource [addEmployee] located at [/api/v1/employee]</con:description><con:settings/><con:testStep type="restrequest" name="POST" id="2c0a890f-05b2-4314-882a-1cad4740074e"><con:settings/><con:config service="https://be-java.azurewebsites.net" resourcePath="/api/v1/employee" methodName="addEmployee" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST" id="1c70fef1-9a1e-43ed-bd72-fd7602a35dec" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#urlEndpoint}</con:endpoint><con:request>{
+  "compitency": "${#TestSuite#compitency}",
+  "id": "${#TestSuite#id}",
+  "name":"${#TestSuite#name}",
+  "yearOfJoining": "${#TestSuite#yearOfJoining}"
+}</con:request><con:originalUri>https://be-java.azurewebsites.net/api/v1/employee</con:originalUri><con:assertion type="Simple Contains" id="c3da65fc-fad2-45df-87bb-6fc0f4c6babe" name="Contains"><con:configuration><token>CREATED</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ea9255e3-a261-4ae9-8c82-a5b59558b7e7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="putEmployee" searchProperties="true"><con:description>TestCase generated for REST Resource [putEmployee] located at [/api/v1/employees/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="PUT" id="193d48d6-9288-4b75-b3e9-ea8dd4c51f43"><con:settings/><con:config service="https://be-java.azurewebsites.net" resourcePath="/api/v1/employees/{id}" methodName="putEmployee" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="PUT" id="bec473cf-9a20-49e2-875c-4aee8615af60" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#urlEndpoint}</con:endpoint><con:request>{
+  "compitency": "${#TestSuite#compitency}",
+  "name": "${#TestSuite#name}",
+  "yearOfJoining": "${#TestSuite#yearOfJoining}"
+}</con:request><con:originalUri>https://be-java.azurewebsites.net/api/v1/employees/9354</con:originalUri><con:assertion type="Simple Contains" id="e05d4c39-41c5-4ec4-a3d4-7a5ca1adf29e" name="Contains"><con:configuration><token>UPDATED</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#TestSuite#id}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="314eac1c-193d-4ea6-9ec8-dbb49ecdc153" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="deleteEmployee" searchProperties="true"><con:description>TestCase generated for REST Resource [deleteEmployee] located at [/api/v1/employees/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="DELETE" id="f889373d-59b0-4b3e-a189-51e53e8b3c20"><con:settings/><con:config service="https://be-java.azurewebsites.net" resourcePath="/api/v1/employees/{id}" methodName="deleteEmployee" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE" id="668b7321-02aa-4bfc-96cb-9fff1d22b3be" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://be-java.azurewebsites.net</con:endpoint><con:request/><con:originalUri>https://be-java.azurewebsites.net/api/v1/employees/id</con:originalUri><con:assertion type="Simple Contains" id="c0f445aa-2d7e-4538-b725-a393a9546bd6" name="Contains"><con:configuration><token>DELETED</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#TestSuite#id}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d00fe52f-a359-4596-a181-71cce646c5a0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="scriptProps" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="68e28ad0-34c8-43ef-bc5f-0dc28e431709"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>ExcelPath</con:name><con:value>C:\Users\91700\Downloads\MSA-5\MSA-5\Source Code\\Book.xls</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="910d2ebf-cca1-48dd-a131-8ca4beff9fd0"><con:settings/><con:config><script><![CDATA[import groovy.json.JsonSlurper
+import jxl.*
+import jxl.write.*
+
+//Excel Reading
+def getColumnNo(String Column,Workbook wb,Sheet sh){
+	def col
+	for (i=0;i<cc;i++){
+			Cell var = sh.getCell(i,0)
+			String Col_name = var.getContents()
+			if(Col_name.equals(Column)){
+				col = i
+			}	
+	}
+	return col
+}
+def getData(String string){
+	//Properties
+	def path = testRunner.testCase.testSteps["Properties"].getPropertyValue("ExcelPath")
+	
+	Workbook wb= Workbook.getWorkbook(new File(path))
+	Sheet sh=wb.getSheet(0)
+	rc = sh.getRows()
+	cc = sh.getColumns()
+	def col_num = getColumnNo(string,wb,sh)
+	Cell var = sh.getCell(col_num,1)
+	wb.close()
+	return var.getContents()
+}
+def id = getData("id")
+def name = getData("Name_Post")
+def name_put = getData("Name_Put")
+def year = getData("Year_Post")
+def year_put = getData("Year_Put")
+def compitency = getData("Compitency_Post")
+def compitency_put = getData("Compitency_Put")
+
+//Post compitency id name yearOfJoining
+testRunner.testCase.testSuite.setPropertyValue("id",id) 
+testRunner.testCase.testSuite.setPropertyValue("compitency",compitency) 
+testRunner.testCase.testSuite.setPropertyValue("name",name) 
+testRunner.testCase.testSuite.setPropertyValue("yearOfJoining",year) 
+def addTestCase = testRunner.testCase.testSuite.testCases["addEmployee"]
+def tStep1 = addTestCase.testSteps["POST"] 
+def as1 =tStep1.run(testRunner,context) 
+def responseJson1= tStep1.testRequest.response.responseContent
+log.info(responseJson1)
+def POSTmethod=addTestCase.getTestStepByName("POST").getTestRequest() 
+assertions = POSTmethod.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Get
+def getTestCase = testRunner.testCase.testSuite.testCases["getEmployee"]
+def tStep2 = getTestCase.testSteps["GET"] 
+def as2 =tStep2.run(testRunner,context) 
+def responseJson2 = tStep2.testRequest.response.responseContent
+JsonSlurper jsonSlurper2 = new JsonSlurper()
+def parsedJson2 = jsonSlurper2.parseText(responseJson2) 
+String id1
+def flag=0
+for(def str:parsedJson2.body){
+	if(str.name.equals(name) && str.compitency.equals(compitency) && str.yearOfJoining.equals(year.toInteger())){
+		flag=1
+	}
+}
+if(flag==1){
+	log.info("posted")
+}
+else{
+	log.info("Not Posted")
+}
+def GETmethod1=getTestCase.getTestStepByName("GET").getTestRequest() 
+assertions = GETmethod1.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Put
+def putTestCase = testRunner.testCase.testSuite.testCases["putEmployee"]
+testRunner.testCase.testSuite.setPropertyValue("id",id) 
+testRunner.testCase.testSuite.setPropertyValue("compitency",compitency_put) 
+testRunner.testCase.testSuite.setPropertyValue("name",name_put) 
+testRunner.testCase.testSuite.setPropertyValue("yearOfJoining",year_put)
+def tStep3 = putTestCase.testSteps["PUT"] 
+def as3 =tStep3.run(testRunner,context) 
+def responseJson3= tStep3.testRequest.response.responseContent
+log.info(responseJson3) 
+def ass9=as3.getStatus().toString()
+def PUTmethod=putTestCase.getTestStepByName("PUT").getTestRequest() 
+assertions = PUTmethod.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Get
+def tStep4 = getTestCase.testSteps["GET"] 
+def as4 =tStep4.run(testRunner,context) 
+def responseJson4 = tStep4.testRequest.response.responseContent
+JsonSlurper jsonSlurper4 = new JsonSlurper()
+Map parsedJson4 = jsonSlurper4.parseText(responseJson4) 
+log.info(parsedJson4)
+def flag1=0
+for(def str1:parsedJson4.body){
+	if(str1.name.equals(name_put)&&str1.compitency.equals(compitency_put)&&str1.yearOfJoining.equals(year_put.toInteger())){
+		flag1=1
+	}
+}
+if(flag1==1){
+	log.info("Updated")
+}
+else{
+	log.info("Not Updated")
+}
+def GETmethod2=getTestCase.getTestStepByName("GET").getTestRequest() 
+assertions = GETmethod2.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Delete
+def deleteTestCase = testRunner.testCase.testSuite.testCases["deleteEmployee"]
+testRunner.testCase.testSuite.setPropertyValue("id",id)  
+def tStep5 = deleteTestCase.testSteps["DELETE"] 
+def as5 =tStep5.run(testRunner,context) 
+def responseJson5= tStep5.testRequest.response.responseContent
+log.info(responseJson5)
+def DELETEmethod=deleteTestCase.getTestStepByName("DELETE").getTestRequest() 
+assertions = DELETEmethod.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Get
+def tStep6 = getTestCase.testSteps["GET"] 
+def as6 =tStep6.run(testRunner,context) 
+def responseJson6 = tStep6.testRequest.response.responseContent
+JsonSlurper jsonSlurper6 = new JsonSlurper()
+Map parsedJson6 = jsonSlurper6.parseText(responseJson6) 
+log.info(parsedJson6)
+def flag2=1
+for(def str6:parsedJson6.body){
+	if(str6.name.equals(name_put)){
+		flag2=0
+	}
+}
+if(flag2==0){
+	log.info("Not Deleted")
+}
+else{
+	log.info(" Deleted")
+}
+def GETmethod3=getTestCase.getTestStepByName("GET").getTestRequest() 
+assertions = GETmethod3.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}]]></script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>id</con:name><con:value>190</con:value></con:property><con:property><con:name>compitency</con:name><con:value>SDET-JAVA</con:value></con:property><con:property><con:name>name</con:name><con:value>Jacob</con:value></con:property><con:property><con:name>yearOfJoining</con:name><con:value>2018</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>urlEndpoint</con:name><con:value>https://be-java.azurewebsites.net</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

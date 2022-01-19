@@ -1,0 +1,188 @@
+import groovy.json.JsonSlurper
+import jxl.*
+import jxl.write.*
+
+//Excel Reading
+def getColumnNo(String Column,Workbook wb,Sheet sh){
+	def col
+	for (i=0;i<cc;i++){
+			Cell var = sh.getCell(i,0)
+			String Col_name = var.getContents()
+			if(Col_name.equals(Column)){
+				col = i
+			}	
+	}
+	return col
+}
+def getData(String string){
+	//Properties
+	def path = testRunner.testCase.testSteps["Properties"].getPropertyValue("ExcelPath")
+	
+	Workbook wb= Workbook.getWorkbook(new File(path))
+	Sheet sh=wb.getSheet(0)
+	rc = sh.getRows()
+	cc = sh.getColumns()
+	def col_num = getColumnNo(string,wb,sh)
+	Cell var = sh.getCell(col_num,1)
+	wb.close()
+	return var.getContents()
+}
+def id = getData("id")
+def name = getData("Name_Post")
+def name_put = getData("Name_Put")
+def year = getData("Year_Post")
+def year_put = getData("Year_Put")
+def compitency = getData("Compitency_Post")
+def compitency_put = getData("Compitency_Put")
+
+//Post compitency id name yearOfJoining
+testRunner.testCase.testSuite.setPropertyValue("id",id) 
+testRunner.testCase.testSuite.setPropertyValue("compitency",compitency) 
+testRunner.testCase.testSuite.setPropertyValue("name",name) 
+testRunner.testCase.testSuite.setPropertyValue("yearOfJoining",year) 
+def addTestCase = testRunner.testCase.testSuite.testCases["addEmployee"]
+def tStep1 = addTestCase.testSteps["POST"] 
+def as1 =tStep1.run(testRunner,context) 
+def responseJson1= tStep1.testRequest.response.responseContent
+log.info(responseJson1)
+def POSTmethod=addTestCase.getTestStepByName("POST").getTestRequest() 
+assertions = POSTmethod.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Get
+def getTestCase = testRunner.testCase.testSuite.testCases["getEmployee"]
+def tStep2 = getTestCase.testSteps["GET"] 
+def as2 =tStep2.run(testRunner,context) 
+def responseJson2 = tStep2.testRequest.response.responseContent
+JsonSlurper jsonSlurper2 = new JsonSlurper()
+def parsedJson2 = jsonSlurper2.parseText(responseJson2) 
+String id1
+def flag=0
+for(def str:parsedJson2.body){
+	if(str.name.equals(name) && str.compitency.equals(compitency) && str.yearOfJoining.equals(year.toInteger())){
+		flag=1
+	}
+}
+if(flag==1){
+	log.info("posted")
+}
+else{
+	log.info("Not Posted")
+}
+def GETmethod1=getTestCase.getTestStepByName("GET").getTestRequest() 
+assertions = GETmethod1.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Put
+def putTestCase = testRunner.testCase.testSuite.testCases["putEmployee"]
+testRunner.testCase.testSuite.setPropertyValue("id",id) 
+testRunner.testCase.testSuite.setPropertyValue("compitency",compitency_put) 
+testRunner.testCase.testSuite.setPropertyValue("name",name_put) 
+testRunner.testCase.testSuite.setPropertyValue("yearOfJoining",year_put)
+def tStep3 = putTestCase.testSteps["PUT"] 
+def as3 =tStep3.run(testRunner,context) 
+def responseJson3= tStep3.testRequest.response.responseContent
+log.info(responseJson3) 
+def ass9=as3.getStatus().toString()
+def PUTmethod=putTestCase.getTestStepByName("PUT").getTestRequest() 
+assertions = PUTmethod.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Get
+def tStep4 = getTestCase.testSteps["GET"] 
+def as4 =tStep4.run(testRunner,context) 
+def responseJson4 = tStep4.testRequest.response.responseContent
+JsonSlurper jsonSlurper4 = new JsonSlurper()
+Map parsedJson4 = jsonSlurper4.parseText(responseJson4) 
+log.info(parsedJson4)
+def flag1=0
+for(def str1:parsedJson4.body){
+	if(str1.name.equals(name_put)&&str1.compitency.equals(compitency_put)&&str1.yearOfJoining.equals(year_put.toInteger())){
+		flag1=1
+	}
+}
+if(flag1==1){
+	log.info("Updated")
+}
+else{
+	log.info("Not Updated")
+}
+def GETmethod2=getTestCase.getTestStepByName("GET").getTestRequest() 
+assertions = GETmethod2.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Delete
+def deleteTestCase = testRunner.testCase.testSuite.testCases["deleteEmployee"]
+testRunner.testCase.testSuite.setPropertyValue("id",id)  
+def tStep5 = deleteTestCase.testSteps["DELETE"] 
+def as5 =tStep5.run(testRunner,context) 
+def responseJson5= tStep5.testRequest.response.responseContent
+log.info(responseJson5)
+def DELETEmethod=deleteTestCase.getTestStepByName("DELETE").getTestRequest() 
+assertions = DELETEmethod.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}
+
+//Get
+def tStep6 = getTestCase.testSteps["GET"] 
+def as6 =tStep6.run(testRunner,context) 
+def responseJson6 = tStep6.testRequest.response.responseContent
+JsonSlurper jsonSlurper6 = new JsonSlurper()
+Map parsedJson6 = jsonSlurper6.parseText(responseJson6) 
+log.info(parsedJson6)
+def flag2=1
+for(def str6:parsedJson6.body){
+	if(str6.name.equals(name_put)){
+		flag2=0
+	}
+}
+if(flag2==0){
+	log.info("Not Deleted")
+}
+else{
+	log.info(" Deleted")
+}
+def GETmethod3=getTestCase.getTestStepByName("GET").getTestRequest() 
+assertions = GETmethod3.getAssertions()
+stat = (assertions.status).toString()
+if(stat == "FAILED"){
+	log.info "ASSERTIONS FAIL"
+}
+
+else{
+	log.info "ASSERTIONS PASS"
+}

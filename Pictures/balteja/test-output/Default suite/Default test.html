@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>8/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jan 18 14:57:44 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>312 seconds (312271 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Local cab services", "Optional[Local path]"</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Cannot locate element with text: 3:00 PM
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LAPTOP-TO73PJJS&apos;, ip: &apos;192.168.0.105&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:147)
+	at com.mindtree.reusable.WebDriverHelper.select(WebDriverHelper.java:127)
+	at com.mindtree.pageobject.localpage.time(localpage.java:41)
+	at com.mindtree.stepDefination.Localstepdefinition.select_pickup_time(Localstepdefinition.java:50)
+	at ?.select pickup time &quot;3:00 PM&quot;(file:///C:/Users/K%20Sailesh/Downloads/CucumberFramework/Features/Local.feature:9)
+</pre></div><a href='#' onClick='toggleBox("stack-trace271002555", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace271002555'><pre>org.openqa.selenium.NoSuchElementException: Cannot locate element with text: 3:00 PM
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LAPTOP-TO73PJJS&apos;, ip: &apos;192.168.0.105&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:147)
+	at com.mindtree.reusable.WebDriverHelper.select(WebDriverHelper.java:127)
+	at com.mindtree.pageobject.localpage.time(localpage.java:41)
+	at com.mindtree.stepDefination.Localstepdefinition.select_pickup_time(Localstepdefinition.java:50)
+	at ?.select pickup time &quot;3:00 PM&quot;(file:///C:/Users/K%20Sailesh/Downloads/CucumberFramework/Features/Local.feature:9)
+</pre></div></td>
+<td>22</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Outstaion cab services", "Optional[Outsation path]"</td>
+<td><div><pre>java.lang.AssertionError: expected [? 4657] but found [4657]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at com.mindtree.pageobject.outstationpageobject.validate(outstationpageobject.java:83)
+	at com.mindtree.stepDefination.outstationstepdefinition.validate_car_booking_details(outstationstepdefinition.java:74)
+	at ?.validate car booking details(file:///C:/Users/K%20Sailesh/Downloads/CucumberFramework/Features/out.feature:15)
+</pre></div><a href='#' onClick='toggleBox("stack-trace482090462", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace482090462'><pre>java.lang.AssertionError: expected [? 4657] but found [4657]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at com.mindtree.pageobject.outstationpageobject.validate(outstationpageobject.java:83)
+	at com.mindtree.stepDefination.outstationstepdefinition.validate_car_booking_details(outstationstepdefinition.java:74)
+	at ?.validate car booking details(file:///C:/Users/K%20Sailesh/Downloads/CucumberFramework/Features/out.feature:15)
+</pre></div></td>
+<td>49</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Outstaion cab services", "Optional[Outsation path]"</td>
+<td><div><pre>java.lang.AssertionError: expected [? 7493] but found [4657]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at com.mindtree.pageobject.outstationpageobject.validate(outstationpageobject.java:83)
+	at com.mindtree.stepDefination.outstationstepdefinition.validate_car_type_under_booking_details(outstationstepdefinition.java:130)
+	at ?.validate car type under booking details(file:///C:/Users/K%20Sailesh/Downloads/CucumberFramework/Features/out.feature:35)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1562221939", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1562221939'><pre>java.lang.AssertionError: expected [? 7493] but found [4657]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at com.mindtree.pageobject.outstationpageobject.validate(outstationpageobject.java:83)
+	at com.mindtree.stepDefination.outstationstepdefinition.validate_car_type_under_booking_details(outstationstepdefinition.java:130)
+	at ?.validate car type under booking details(file:///C:/Users/K%20Sailesh/Downloads/CucumberFramework/Features/out.feature:35)
+</pre></div></td>
+<td>45</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Airport cab services", "Optional[Airport]"</td>
+<td></td>
+<td>47</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Title of homepage validation", "Optional[Homepage]"</td>
+<td></td>
+<td>9</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "CEO Validation", "Optional[Homepage]"</td>
+<td></td>
+<td>11</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "ContactUs", "Optional[Homepage]"</td>
+<td></td>
+<td>13</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validating Text is displayed after filling the fields", "Optional[Corporate car Rental under services]"</td>
+<td></td>
+<td>30</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validating the North route", "Optional[One way cab]"</td>
+<td></td>
+<td>27</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Checking Login", "Optional[Login Validation]"</td>
+<td></td>
+<td>23</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+<tr>
+<td title='com.mindtree.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.mindtree.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Title of your scenario", "Optional[Cab Type]"</td>
+<td></td>
+<td>28</td>
+<td>com.mindtree.runner.TestRunner@2177849e</td></tr>
+</table><p>
+</body>
+</html>
